@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 
 const morgan = require('morgan');
+const debug = require('debug')('app');
 
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
@@ -25,7 +26,7 @@ app.use((error, req, res, next) => {
     error: {
       message: error.message
     }
-  })
+  });
 });
 
 module.exports = app;
